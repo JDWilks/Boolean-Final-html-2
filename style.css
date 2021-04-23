@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,8 +17,10 @@ body {
     "footer" auto /
     1fr;
 
-  background-color: #2f4353;
-  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+  /* background-color: #2f4353;
+  background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%); */
+
+  background: linear-gradient(to bottom, #ffffff 0%, #978aff 100%);
 }
 
 .section-title,
@@ -76,7 +79,6 @@ main {
   grid-gap: 10px;
   padding: 10px;
   grid-auto-rows: auto;
-  /* justify-content: center; */
 }
 
 .section-body .items {
@@ -95,7 +97,7 @@ img {
 }
 
 img:hover {
-  box-shadow: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.521);
 }
 
 .images-copy {
@@ -103,18 +105,17 @@ img:hover {
   font-family: "Spartan", sans-serif;
   font-size: 0.7rem;
   line-height: 2;
-  color: white;
+  color: rgb(75, 66, 66);
 }
 
 /* //footer styling// */
 
 footer {
   grid-area: footer;
-  background: linear-gradient(to top right, #ffffff 0%, #5f5d5e 100%);
+  background: linear-gradient(to top, #ffffff 0%, #978aff 100%);
 
   display: grid;
   grid-auto-flow: column;
-  font-size: 2rem;
 }
 
 footer span {
@@ -128,28 +129,45 @@ footer span {
 }
 
 svg:hover {
-  fill: red;
+  fill: rgb(17, 56, 231);
 }
 
 /* //desktop styling// */
 
-/* @media screen and (min-width: 800px) {
-  body {
+@media screen and (min-width: 800px) {
+  .section-body {
+    grid-area: section-body;
     display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
+    grid-auto-rows: auto;
+  }
+
+  img:hover {
+    transform: scale(2);
+
+    /* translate(-50%, -50%) */
+  }
+
+  .section-title {
+    text-transform: uppercase;
+    background-color: blueviolet;
+    font-size: 2rem;
+  }
+
+  body {
     grid-template:
-      "header" auto
-      "hero-image" 50%
-      "section-body" 1fr
-      "footer" auto/
-      1fr;
+      "header header" auto
+      "footer section-body" 1fr /
+      50px 1fr;
+
+    background: linear-gradient(to bottom, #ffffff 0%, #978aff 100%);
   }
 
-  .hero-image {
-    grid-area: hero-image;
-    background-image: url(assets/images/PngItem_47792.png);
-    width: 100%;
-    object-fit: contain;
+  footer {
+    grid-auto-flow: row;
+    background: linear-gradient(to bottom, #ffffff 0%, #978aff 100%);
   }
-
-  
-} */
+}
